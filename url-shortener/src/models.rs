@@ -1,6 +1,6 @@
 // models.rs - Data structures for the URL shortener application
 
-use serde::{Serialize, Deserialize};
+use serde::{Deserialize, Serialize};
 
 /// Request structure for URL shortening endpoint
 #[derive(Debug, Serialize, Deserialize)]
@@ -12,7 +12,9 @@ pub struct ShortenRequest {
 /// Response structure for URL shortening endpoint
 #[derive(Debug, Serialize, Deserialize)]
 pub struct ShortenResponse {
-    /// The complete shortened URL (including domain)
+    /// The unique short code for this URL
+    pub short_code: String,
+    /// The complete shortened URL
     pub short_url: String,
 }
 
