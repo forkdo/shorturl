@@ -11,7 +11,7 @@ on:
       - "Containerfile"
       - ".github/workflows/docker.yml"
       - "url-shortener/src/**"
-      - "Cargo.toml"
+      - "url-shortener/Cargo.toml"
 
 jobs:
   docker:

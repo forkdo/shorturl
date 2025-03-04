@@ -5,6 +5,8 @@ use serde::{Deserialize, Serialize};
 /// Request structure for URL shortening endpoint
 #[derive(Debug, Serialize, Deserialize)]
 pub struct ShortenRequest {
+    /// The URL to be shortened
+    pub code: Option<String>,
     /// The original URL to be shortened
     pub url: String,
 }

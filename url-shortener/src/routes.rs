@@ -33,8 +33,11 @@ async fn shorten_url(
     State((pool, site_url)): State<(Arc<SqlitePool>, String)>,
     Json(payload): Json<ShortenRequest>,
 ) -> Result<Json<ShortenResponse>, axum::http::StatusCode> {
-    // Generate a unique short code
-    let short_code = generate_short_code();
+    // Generate a short code for the URL
+    let short_code = match payload.code {
+        Some(code) => code,
+        None => generate_short_code(),
+    };
 
     // Create the complete shortened URL
     let short_url = format!("{}/{}", site_url, short_code);
